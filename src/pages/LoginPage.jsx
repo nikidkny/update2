@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header/Header";
 import BackgroundVideo from "../components/BackgroundVideo";
-import LoginButton from "../components/loginButton/LoginButton";
+import LoginButton from "../components/LoginButton/LoginButton";
 
 const LoginPage = ({ className, buttonLabel }) => {
   const navigate = useNavigate();
