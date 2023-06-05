@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
-import Line from "../../globals/Line/Line";
-import { supabase } from "../../../../supabase";
+import Line from "../../components/Line/Line";
+import { supabase } from "../../../supabase";
 import Post from "../Post/Post";
 
 const PostList = ({ className, handlePostClick }) => {

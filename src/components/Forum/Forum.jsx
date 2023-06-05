@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PostList from "../PostList/PostList";
 import Post from "../Post/Post";
-import { supabase } from "../../../../supabase";
-import Header from "../../globals/Header/Header";
-import Line from "../../globals/Line/Line";
+import { supabase } from "../../../supabase";
+import Header from "../../components/Header/Header";
+import Line from "../../components/Line/Line";
 import classNames from "classnames";
 
 const Forum = ({ handleUpdateComments, className }) => {

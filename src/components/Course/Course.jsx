@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { supabase } from "../../../../supabase";
-import { AuthContext } from ".././../../../AuthProvider";
+import { supabase } from "../../../supabase";
+import { AuthContext } from ".././../../AuthProvider";
 
 export default function Course({ courseId, title, progress, metadata, duration, description }) {
   const [lessons, setLessons] = useState([]);

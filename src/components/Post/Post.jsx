@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import Comment from "../Comment/Comment";
 import classNames from "classnames";
-import { supabase } from "../../../../supabase";
+import { supabase } from "../../../supabase";
 
 const Post = ({
   className,

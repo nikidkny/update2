@@ -143,13 +143,13 @@ const fetchAllCourses = async () => {
 const fetchLessonContent = async (lessonId) => {
   try {
     const { data, error } = await supabase.from("lessons").select("*").eq("id", lessonId);
-
+    const { image_url } = await supabase.from("lessons").select("image_url").eq("id", lessonId);
     if (error) {
       console.error(error);
       return null;
     }
 
-    return data;
+    return data, image_url;
   } catch (error) {
     console.error(error);
     return null;
