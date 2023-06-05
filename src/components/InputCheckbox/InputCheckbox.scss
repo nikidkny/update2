@@ -1,0 +1,25 @@
+.checkbox {
+  display: inline-block;
+
+  .checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .checkbox-input {
+    display: none;
+  }
+
+  .checkbox-icon {
+    margin-right: 0.5rem;
+  }
+
+  .checkbox-checked .checkbox-unchecked {
+    display: none;
+  }
+
+  .checkbox-checked .checkbox-checked {
+    display: inline-block;
+  }
+}
