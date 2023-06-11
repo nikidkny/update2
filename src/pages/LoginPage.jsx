@@ -39,8 +39,8 @@ const LoginPage = ({ className, buttonLabel }) => {
 
   return (
     <>
-      <Header theme="dark" />
       <div className={classes}>
+        <Header theme="dark" />
         <BackgroundVideo />
         <div className="form">
           <h2>Login</h2>

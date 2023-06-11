@@ -370,6 +370,14 @@ body {
   width: fit-content;
 }
 .login {
+  header {
+    padding: 10px 100px;
+    .line {
+      border-top: 1px solid var(--color-base-white-20);
+      padding: 0;
+      min-height: 100%;
+    }
+  }
   color: var(--color-base-white-100);
   overflow: hidden;
   .hero-video {
