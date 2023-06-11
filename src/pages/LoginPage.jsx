@@ -32,7 +32,9 @@ const LoginPage = ({ className, buttonLabel }) => {
         console.error("Login error:", error.message);
       });
   };
-
+  // const handleKeyDown = () => {
+  //   handleSignIn();
+  // };
   var classes = classNames([className, "login"]);
 
   return (
@@ -44,7 +46,11 @@ const LoginPage = ({ className, buttonLabel }) => {
           <h2>Login</h2>
           <input type="email" value={email} onChange={handleEmailChange} />
           <input type="password" value={password} onChange={handlePasswordChange} />
-          <LoginButton buttonLabel={buttonLabel} onClick={handleSignIn} />
+          <LoginButton
+            buttonLabel={buttonLabel}
+            onClick={handleSignIn}
+            // onKeyPress={handleKeyDown}
+          />
         </div>
       </div>
     </>

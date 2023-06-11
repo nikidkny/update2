@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import Line from "../../components/Line/Line";
 import { supabase } from "../../../supabase";
 import Post from "../Post/Post";
 
 const PostList = ({ className, handlePostClick }) => {
-  const [isFocused, setIsFocused] = useState(false);
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
 
   var classes = classNames([className, "postlist"]);
-  const searchBarClasses = classNames("search", {
-    "search--focused": isFocused,
-  });
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -62,60 +58,8 @@ const PostList = ({ className, handlePostClick }) => {
     return content;
   };
 
-  const handleSearch = (event) => {
-    const query = event.target.value;
-    setSearchQuery(query);
-
-    const filtered = posts.filter(
-      (post) =>
-        post.title.toLowerCase().includes(query.toLowerCase()) ||
-        post.comments.some((comment) => comment.toLowerCase().includes(query.toLowerCase())) ||
-        post.content.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredPosts(filtered);
-  };
-
   return (
     <div className={classes}>
-      <div>
-        <label className={searchBarClasses} htmlFor="searchInput">
-          <input
-            type="text"
-            id="searchInput"
-            name="search"
-            placeholder="Search"
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            className="search__field"
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-          <i type="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-search"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
-          </i>
-        </label>
-      </div>
-      {searchQuery && filteredPosts.length > 0 && (
-        <div className="search-results">
-          <h5>Search Results</h5>
-          {filteredPosts.map((post) => (
-            <div className="search-result-item" key={post.id}>
-              <h5>{post.title}</h5>
-              <p>{post.content}</p>
-            </div>
-          ))}
-          <Line />
-        </div>
-      )}
       <h5>All Posts</h5>
       <div className="titles">
         <h5>Title</h5>

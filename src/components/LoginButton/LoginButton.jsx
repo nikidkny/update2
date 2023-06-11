@@ -4,6 +4,11 @@ import "./LoginButton.scss";
 
 const LoginButton = ({ className, buttonLabel, onClick }) => {
   var classes = classNames([className, "button"]);
+  // const handleKeyDown = (event) => {
+  //   if (event.key === "Enter") {
+  //     onKeyPress();
+  //   }
+  // };
   return (
     <button type="button" className={classes} onClick={onClick}>
       {buttonLabel}

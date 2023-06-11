@@ -286,6 +286,9 @@
 }
 
 html {
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-base-deep-blue);
   font-family: var(--typography-desktop-body-regular-font-family);
   font-weight: var(--typography-desktop-body-regular-font-weight);
   line-height: var(--typography-desktop-body-regular-line-height);
@@ -353,8 +356,7 @@ html {
   a:hover {
     text-decoration: var(--typography-desktop-link-text-decoration);
   }
-  padding: 0;
-  margin: 0;
+
   ul,
   ol {
     list-style: none;
@@ -362,7 +364,6 @@ html {
   button {
     cursor: pointer;
   }
-  background-color: var(--color-base-deep-blue);
 }
 body {
   margin: 0;
@@ -406,6 +407,10 @@ body {
   }
 }
 .profile {
+  right: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
   padding: 100px;
   background-color: var(--color-base-blue-400);
   .goal {
@@ -591,12 +596,42 @@ body {
   }
 }
 .forum {
+  right: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
   background-color: var(--color-base-white-100);
   padding: 100px;
   .hero {
     display: grid;
     justify-items: center;
     justify-content: center;
+    .search-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-radius: var(--searchbar-border-radius);
+      padding: var(--searchbar-padding);
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+      color: var(--color-base-blue-600);
+      border-color: var(--color-base-blue-600);
+      &--focused {
+        border: 2px solid var(--color-base-deep-blue);
+      }
+      &_field {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        height: 100%;
+        color: currentColor;
+        &::placeholder {
+          color: var(--color-base-blue-600);
+        }
+      }
+    }
   }
   .new-post {
     display: flex;

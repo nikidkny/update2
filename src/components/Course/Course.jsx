@@ -3,7 +3,15 @@ import { useState, useEffect, useContext } from "react";
 import { supabase } from "../../../supabase";
 import { AuthContext } from ".././../../AuthProvider";
 
-export default function Course({ courseId, title, progress, metadata, duration, description }) {
+export default function Course({
+  courseId,
+  title,
+  progress,
+  metadata,
+  duration,
+  description,
+  image_url,
+}) {
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -66,6 +74,7 @@ export default function Course({ courseId, title, progress, metadata, duration, 
 
   return (
     <div className="course">
+      {image_url && <img src={image_url} alt="course Image" />}
       <h5>{title}</h5>
       {description && <p>{description}</p>}
       {metadata && metadata.tag && <p>{metadata.tag}</p>}

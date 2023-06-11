@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import Comment from "../Comment/Comment";
 import classNames from "classnames";
 import { supabase } from "../../../supabase";
@@ -61,11 +61,14 @@ const Post = ({
       <div className="post-content">
         <h2>{post.title}</h2>
         <p>Author: {authorName}</p>
-        <p>{post.content}</p>
-        <p>Posted on: {new Date(post.date).toLocaleString()}</p>
-        {topics && topics.length > 0 && (
-          <p>Topics: {topics.map((topic) => topic.topic).join(", ")}</p>
-        )}
+
+        <div>
+          <p>{post.content}</p>
+          <p>Posted on: {new Date(post.date).toLocaleString()}</p>
+          {topics && topics.length > 0 && (
+            <p>Topics: {topics.map((topic) => topic.topic).join(", ")}</p>
+          )}
+        </div>
         <div>
           <p>
             <FontAwesomeIcon icon={faHeart} onClick={handleLike} />
@@ -77,6 +80,10 @@ const Post = ({
           </p>
         </div>
         <p>Comments: {comments.length}</p>
+
+        {comments.map((comment) => (
+          <Comment key={comment.id} comment={comment} />
+        ))}
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -94,9 +101,6 @@ const Post = ({
           />
           <button type="submit">Comment</button>
         </form>
-        {comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
       </div>
     </div>
   );
