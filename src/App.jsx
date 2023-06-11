@@ -13,7 +13,7 @@ const App = ({ handleLogin }) => {
 
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/" element={<LoginPage />} />
       {user ? (
         <>
           <Route path="/profile" element={<UserProfilePage />} />
