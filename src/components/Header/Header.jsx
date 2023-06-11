@@ -7,7 +7,7 @@ import Line from "../Line/Line";
 
 const Header = ({ className, theme }) => {
   const location = useLocation();
-  const isLoginPage = location.pathname === "/login";
+  const isLoginPage = location.pathname === "/";
   var classes = classNames([className, "header", `header-${theme}`]);
   return (
     <header className={classes}>
@@ -31,7 +31,7 @@ const Header = ({ className, theme }) => {
       )}
       {isLoginPage && (
         <nav>
-          <Link to="/login">
+          <Link to="/">
             <Logo></Logo>
           </Link>
         </nav>

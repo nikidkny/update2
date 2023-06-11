@@ -20,7 +20,7 @@ const App = ({ handleLogin }) => {
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/lesson/:courseId/:lessonId" element={<LessonPage />} />
-          <Route path="/finished/:courseId" element={<FinishedPage />} />
+          {/* <Route path="/finished/:courseId" element={<FinishedPage />} /> */}
         </>
       ) : (
         <Route path="/" element={<Navigate to="/" replace />} />
