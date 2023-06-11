@@ -139,68 +139,68 @@ const fetchAllCourses = async () => {
   }
 };
 
-// Fetch lesson content by lesson ID
-const fetchLessonContent = async (lessonId) => {
-  try {
-    const { data, error } = await supabase.from("lessons").select("*").eq("id", lessonId);
-    const { image_url } = await supabase.from("lessons").select("image_url").eq("id", lessonId);
-    if (error) {
-      console.error(error);
-      return null;
-    }
+// // Fetch lesson content by lesson ID
+// const fetchLessonContent = async (lessonId) => {
+//   try {
+//     const { data, error } = await supabase.from("lessons").select("*").eq("id", lessonId);
+//     const { image_url } = await supabase.from("lessons").select("image_url").eq("id", lessonId);
+//     if (error) {
+//       console.error(error);
+//       return null;
+//     }
 
-    return data, image_url;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
+//     return data, image_url;
+//   } catch (error) {
+//     console.error(error);
+//     return null;
+//   }
+// };
 
-// Fetch the next lesson by lesson ID and course ID
-const fetchNextLesson = async (lessonId, courseId) => {
-  try {
-    const { data, error } = await supabase
-      .from("lessons")
-      .select("*")
-      .eq("course_id", courseId)
-      .gt("id", lessonId)
-      .limit(1)
-      .order("id", { ascending: true });
+// // Fetch the next lesson by lesson ID and course ID
+// const fetchNextLesson = async (lessonId, courseId) => {
+//   try {
+//     const { data, error } = await supabase
+//       .from("lessons")
+//       .select("*")
+//       .eq("course_id", courseId)
+//       .gt("id", lessonId)
+//       .limit(1)
+//       .order("id", { ascending: true });
 
-    if (error) {
-      console.error(error);
-      return null;
-    }
+//     if (error) {
+//       console.error(error);
+//       return null;
+//     }
 
-    return data[0];
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
+//     return data[0];
+//   } catch (error) {
+//     console.error(error);
+//     return null;
+//   }
+// };
 
-// Fetch the previous lesson by lesson ID and course ID
-const fetchPreviousLesson = async (lessonId, courseId) => {
-  try {
-    const { data, error } = await supabase
-      .from("lessons")
-      .select("*")
-      .eq("course_id", courseId)
-      .lt("id", lessonId)
-      .limit(1)
-      .order("id", { ascending: false });
+// // Fetch the previous lesson by lesson ID and course ID
+// const fetchPreviousLesson = async (lessonId, courseId) => {
+//   try {
+//     const { data, error } = await supabase
+//       .from("lessons")
+//       .select("*")
+//       .eq("course_id", courseId)
+//       .lt("id", lessonId)
+//       .limit(1)
+//       .order("id", { ascending: false });
 
-    if (error) {
-      console.error(error);
-      return null;
-    }
+//     if (error) {
+//       console.error(error);
+//       return null;
+//     }
 
-    return data[0];
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
+//     return data[0];
+//   } catch (error) {
+//     console.error(error);
+//     return null;
+//   }
+// };
 
 // Fetch posts
 const fetchPosts = async () => {
@@ -225,9 +225,9 @@ export {
   fetchAllCourses,
   fetchUser,
   fetchEnrollments,
-  fetchLessonContent,
-  fetchNextLesson,
-  fetchPreviousLesson,
+  // fetchLessonContent,
+  // fetchNextLesson,
+  // fetchPreviousLesson,
   insertEnrollment,
   updateEnrollment,
   deleteEnrollment,

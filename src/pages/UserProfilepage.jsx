@@ -17,8 +17,8 @@ const UserProfilePage = ({ className }) => {
         const userEnrollments = await fetchEnrollmentsByUserId(user.id);
         const courses = await fetchAllCourses();
 
-        console.log("userEnrollments:", userEnrollments);
-        console.log("courses:", courses);
+        // console.log("userEnrollments:", userEnrollments);
+        // console.log("courses:", courses);
 
         if (userEnrollments && courses) {
           const updatedEnrollments = userEnrollments.map((enrollment) => {
@@ -31,7 +31,7 @@ const UserProfilePage = ({ className }) => {
           });
 
           setEnrollments(updatedEnrollments);
-          console.log(enrollments);
+          // console.log(enrollments);
         }
       }
     }

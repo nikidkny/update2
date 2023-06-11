@@ -24,6 +24,7 @@ export default function Course({
         const { data, error } = await supabase
           .from("lessons")
           .select("*")
+          .order("id")
           .eq("course_id", courseId);
 
         if (error) {
@@ -40,7 +41,7 @@ export default function Course({
 
     fetchData();
   }, [courseId]);
-
+  console.log("before handle btn", lessons);
   const handleButtonClick = async () => {
     if (lessons.length > 0) {
       const firstLessonId = lessons[0].id;
@@ -51,6 +52,7 @@ export default function Course({
           .from("lessons")
           .select("title")
           .eq("id", firstLessonId)
+          .order("id")
           .limit(1);
 
         if (lessonError) {

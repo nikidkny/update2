@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const navto = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(navto);
+  // console.log(navto);
 
   // Function to handle user login
   const handleLogin = async (email, password) => {
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      console.log(event, session);
+      // console.log(event, session);
       setUser(session?.user ?? null);
       setLoading(false);
     });

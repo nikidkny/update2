@@ -44,8 +44,26 @@ const LoginPage = ({ className, buttonLabel }) => {
         <BackgroundVideo />
         <div className="form">
           <h2>Login</h2>
-          <input type="email" value={email} onChange={handleEmailChange} />
-          <input type="password" value={password} onChange={handlePasswordChange} />
+          <div className="form--fields">
+            <label htmlFor="email">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={handleEmailChange}
+              />
+            </label>
+            <label htmlFor="password">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </label>
+          </div>
           <LoginButton
             buttonLabel={buttonLabel}
             onClick={handleSignIn}

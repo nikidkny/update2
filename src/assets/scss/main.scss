@@ -407,10 +407,23 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    input {
-      border-radius: 10px;
-      padding: 12px;
-      width: 350px;
+    &--fields {
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+      label {
+        display: flex;
+        input {
+          border-radius: 10px;
+          padding: 12px;
+          width: 350px;
+          height: 25px;
+          border: none;
+          &::placeholder {
+            font-family: var(--font-families-linguistics-pro);
+          }
+        }
+      }
     }
   }
 }
@@ -675,12 +688,17 @@ body {
       right: 0;
       &-sticky {
         position: fixed;
+        top: 50%;
+        left: 50%;
+        right: 1%;
+        transform: translate(0%, -50%);
         img {
           object-fit: cover;
-          width: 80%;
+          width: 100%;
         }
         .page-actions {
           display: flex;
+          justify-content: space-around;
           .button-container {
             display: flex;
             align-items: center;

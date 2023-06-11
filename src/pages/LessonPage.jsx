@@ -18,12 +18,13 @@ export default function LessonPage() {
           .select("*")
           .eq("course_id", courseId)
           .eq("id", parseInt(lessonId, 10))
+          .order("id")
           .limit(1);
 
-        console.log("courseId:", courseId);
-        console.log("lessonId:", lessonId);
-        console.log("Lesson Data:", lessonData);
-        console.log("Lesson Error:", lessonError);
+        // console.log("courseId:", courseId);
+        // console.log("lessonId:", lessonId);
+        // console.log("Lesson Data:", lessonData);
+        // console.log("Lesson Error:", lessonError);
 
         if (lessonError) {
           throw new Error(lessonError.message);
@@ -49,13 +50,13 @@ export default function LessonPage() {
           .select("lesson_id")
           .eq("course_id", courseId)
           .lt("lesson_id", parseInt(lessonId, 10))
-          .order("lesson_id", { ascending: false })
+          .order("lesson_id", { ascending: true })
           .limit(1);
 
-        console.log("courseId:", courseId);
-        console.log("lessonId:", lessonId);
-        console.log("Lesson Data:", previousLessonData);
-        console.log("Lesson Error:", previousLessonError);
+        // console.log("courseId:", courseId);
+        // console.log("lessonId:", lessonId);
+        // console.log("Lesson Data:", previousLessonData);
+        // console.log("Lesson Error:", previousLessonError);
 
         if (previousLessonError) {
           throw new Error(previousLessonError.message);
@@ -102,10 +103,10 @@ export default function LessonPage() {
           .order("lesson_id", { ascending: true })
           .limit(1);
 
-        console.log("courseId:", courseId);
-        console.log("lessonId:", lessonId);
-        console.log("Lesson Data:", nextLessonData);
-        console.log("Lesson Error:", nextLessonError);
+        // console.log("courseId:", courseId);
+        // console.log("lessonId:", lessonId);
+        // console.log("Lesson Data:", nextLessonData);
+        // console.log("Lesson Error:", nextLessonError);
 
         if (nextLessonError) {
           throw new Error(nextLessonError.message);
