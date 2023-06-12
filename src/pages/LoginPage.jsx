@@ -24,6 +24,10 @@ const LoginPage = ({ className, buttonLabel }) => {
   };
 
   const handleSignIn = () => {
+    if (!email || !password) {
+      alert("Both email and password are required.");
+      return;
+    }
     handleLogin(email, password)
       .then(() => {
         navigate("/profile");

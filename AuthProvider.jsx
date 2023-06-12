@@ -18,8 +18,8 @@ export const AuthProvider = ({ children }) => {
       if (error) {
         throw new Error(error.message);
       }
-
-      setUser(data.user);
+      const { user } = data;
+      setUser(user);
 
       // Fetch the course_id from the table
       const { data: courseData, error: courseError } = await supabase
@@ -34,12 +34,12 @@ export const AuthProvider = ({ children }) => {
       const courseId = courseData.id; // Fetch the actual course id from the table
 
       // Insert enrollments to table
-      await supabase.from("enrollments").insert([
-        {
-          user_id: data.user.id,
-          course_id: courseId,
-        },
-      ]);
+      // await supabase.from("enrollments").insert([
+      //   {
+      //     user_id: parseInt(data.user.id, 10),
+      //     course_id: courseId,
+      //   },
+      // ]);
 
       navto("/profile");
     } catch (error) {

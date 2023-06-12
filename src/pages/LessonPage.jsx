@@ -148,9 +148,25 @@ export default function LessonPage() {
     }
   };
 
-  const handleNextLessonClick = () => {
+  const handleNextLessonClick = async () => {
     if (nextLesson && nextLesson.id) {
       navigate(`/lesson/${courseId}/${nextLesson.id}`);
+
+      try {
+        const { data: updateData, error: updateError } = await supabase
+          .from("enrollments")
+          .update({ completion_status: true, completion_date: new Date() })
+          .eq("user_id", user.id)
+          .eq("course_id", courseId);
+
+        if (updateError) {
+          throw new Error(updateError.message);
+        }
+
+        console.log("Update Data:", updateData);
+      } catch (error) {
+        console.error("Error updating completion status:", error);
+      }
     }
   };
 

@@ -60,7 +60,7 @@ const PostList = ({ className, handlePostClick }) => {
 
   return (
     <div className={classes}>
-      <h5>All Posts</h5>
+      <h3>All Posts</h3>
       <div className="titles">
         <h5>Title</h5>
         <h5>Description</h5>

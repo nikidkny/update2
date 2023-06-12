@@ -24,19 +24,10 @@ async function fetchUser() {
   console.log("User:", user);
 }
 
-fetchUser();
-
 // Fetch enrollments by user ID
 const fetchEnrollmentsByUserId = async (userId) => {
-  const userIdWithoutHyphens = userId.replace(/-/g, "");
-  const parsedUserId = BigInt("0x" + userIdWithoutHyphens.slice(0, 10));
-  console.log("userId:", userId);
-  console.log("parsedUserId:", parsedUserId);
   try {
-    const { data, error } = await supabase
-      .from("enrollments")
-      .select("*")
-      .eq("user_id", parsedUserId);
+    const { data, error } = await supabase.from("enrollments").select("*").eq("user_id", userId);
 
     if (error) {
       console.error(error);
@@ -86,7 +77,7 @@ const insertEnrollment = async (enrollmentData) => {
 };
 
 // Update an enrollment by ID
-const updateEnrollment = async (enrollmentId, updates) => {
+const updateEnrollmentStatus = async (enrollmentId, updates) => {
   try {
     const { data, error } = await supabase
       .from("enrollments")
@@ -229,7 +220,7 @@ export {
   // fetchNextLesson,
   // fetchPreviousLesson,
   insertEnrollment,
-  updateEnrollment,
+  updateEnrollmentStatus,
   deleteEnrollment,
   fetchPosts,
 };

@@ -79,7 +79,7 @@ const Post = ({
             {dislikes}
           </p>
         </div>
-        <p>Comments: {comments.length}</p>
+        <p>Comments ({comments.length}): </p>
 
         {comments.map((comment) => (
           <Comment key={comment.id} comment={comment} />

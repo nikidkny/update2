@@ -42,12 +42,34 @@ export default function Course({
     fetchData();
   }, [courseId]);
   console.log("before handle btn", lessons);
+
   const handleButtonClick = async () => {
+    console.log("user: ", user);
     if (lessons.length > 0) {
       const firstLessonId = lessons[0].id;
       console.log("First Lesson ID:", firstLessonId);
+      console.log(user.id);
 
       try {
+        const {
+          data: enrollmentData,
+          error: enrollmentError,
+          response,
+        } = await supabase.from("enrollments").insert([
+          {
+            course_id: courseId,
+            user_id: user.id,
+            lesson_id: firstLessonId,
+            completion_status: false,
+          },
+        ]);
+        console.log("Insert response:", response);
+        console.log("Enrollment Data:", enrollmentData);
+        console.log("Enrollment error:", enrollmentError);
+        if (enrollmentError) {
+          throw new Error(enrollmentError.message);
+        }
+
         const { data: lessonData, error: lessonError } = await supabase
           .from("lessons")
           .select("title")

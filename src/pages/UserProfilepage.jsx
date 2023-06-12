@@ -6,14 +6,14 @@ import Course from "../components/Course/Course";
 import { supabase, fetchEnrollmentsByUserId, fetchAllCourses } from "../../supabase";
 import { AuthContext } from "../../AuthProvider";
 
-const UserProfilePage = ({ className }) => {
+const UserProfilePage = ({ className, parsedUserId }) => {
   const { user } = useContext(AuthContext);
   const [enrollments, setEnrollments] = useState([]);
   const classes = classNames([className, "profile"]);
-
   useEffect(() => {
     async function fetchData() {
       if (user) {
+        console.log(user);
         const userEnrollments = await fetchEnrollmentsByUserId(user.id);
         const courses = await fetchAllCourses();
 
@@ -43,7 +43,7 @@ const UserProfilePage = ({ className }) => {
   useEffect(() => {
     localStorage.setItem("enrollments", JSON.stringify(enrollments));
   }, [enrollments]);
-
+  console.log(enrollments);
   // Retrieve enrollments from local storage on page load
   useEffect(() => {
     const storedEnrollments = localStorage.getItem("enrollments");
@@ -62,20 +62,13 @@ const UserProfilePage = ({ className }) => {
         {/* <h5>
           {days} Days/ {goal} Days
         </h5> */}
-        <img src="http://nikolettdkny.dk/images/clippy.gif" alt="an animation of a clipper" />
+        <img src="https://nikolettdkny.dk/images/clippy.gif" alt="an animation of a clipper" />
       </div>
       <Line />
       <div>
         <h4>My courses</h4>
-
-        {/* <Course
-          key={course.id}
-          courseId={course.id}
-          title={course.title}
-          description={course.description}
-          metadata={course.metadata}
-          enrolled
-        /> */}
+        <h3>In progress</h3>
+        <h3>Finished</h3>
       </div>
       <Line />
     </div>

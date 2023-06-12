@@ -186,16 +186,18 @@ const Forum = ({ handleUpdateComments, className }) => {
               e.target.reset();
             }}
           >
-            <input type="text" name="title" placeholder="Post Title" />
-            <textarea name="content" placeholder="Post Content" />
-            <input
-              type="text"
-              name="topic"
-              placeholder="Post Topic"
-              value={selectedTopic}
-              onChange={(e) => setSelectedTopic(e.target.value)}
-            />
-            <button type="submit">Add Post</button>
+            <div className="input-container">
+              <textarea name="title" placeholder="Post Title" />
+              <textarea name="content" placeholder="Post Content" />
+              <textarea
+                name="topic"
+                placeholder="Post Topic"
+                value={selectedTopic}
+                onChange={(e) => setSelectedTopic(e.target.value)}
+              />
+            </div>
+
+            <button type="submit">Add New Post</button>
           </form>
         </React.Fragment>
       )}
