@@ -102,6 +102,7 @@ const Post = ({
             }}
           >
             <textarea
+              minLength={5}
               name="comment"
               placeholder="Enter your comment"
               value={commentText}

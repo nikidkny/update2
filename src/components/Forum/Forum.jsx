@@ -187,8 +187,8 @@ const Forum = ({ handleUpdateComments, className }) => {
             }}
           >
             <div className="input-container">
-              <textarea name="title" placeholder="Post Title" maxLength={50} />
-              <textarea name="content" placeholder="Post Content" />
+              <textarea name="title" placeholder="Post Title" maxLength={50} minLength={5} />
+              <textarea name="content" placeholder="Post Content" minLength={50} />
               <textarea
                 name="topic"
                 placeholder="Post Topic"
