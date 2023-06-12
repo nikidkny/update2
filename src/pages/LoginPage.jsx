@@ -44,10 +44,12 @@ const LoginPage = ({ className, buttonLabel }) => {
         <BackgroundVideo />
         <div className="form">
           <h2>Login</h2>
-          <div className="form--fields">
+          <form name="login" className="form--fields">
             <label htmlFor="email">
               <input
+                autoComplete="on"
                 type="email"
+                id="email"
                 name="email"
                 placeholder="Email"
                 value={email}
@@ -56,6 +58,7 @@ const LoginPage = ({ className, buttonLabel }) => {
             </label>
             <label htmlFor="password">
               <input
+                id="password"
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -63,7 +66,7 @@ const LoginPage = ({ className, buttonLabel }) => {
                 onChange={handlePasswordChange}
               />
             </label>
-          </div>
+          </form>
           <LoginButton
             buttonLabel={buttonLabel}
             onClick={handleSignIn}
