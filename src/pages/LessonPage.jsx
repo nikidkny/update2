@@ -144,13 +144,13 @@ export default function LessonPage() {
 
   const handlePreviousLessonClick = () => {
     if (previousLesson && previousLesson.id) {
-      navigate(`/lesson/${courseId}/${previousLesson.id}`);
+      navigate(`/course/${courseId}/lesson/${previousLesson.id}`);
     }
   };
 
   const handleNextLessonClick = async () => {
     if (nextLesson && nextLesson.id) {
-      navigate(`/lesson/${courseId}/${nextLesson.id}`);
+      navigate(`/course/${courseId}/lesson/${nextLesson.id}`);
 
       try {
         const { data: updateData, error: updateError } = await supabase

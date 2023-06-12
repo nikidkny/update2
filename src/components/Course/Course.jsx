@@ -84,7 +84,7 @@ export default function Course({
         console.log("Lesson Data:", lessonData);
 
         if (lessonData && lessonData.length > 0) {
-          navigate(`/lesson/${courseId}/${firstLessonId}`);
+          navigate(`/course/${courseId}/lesson/${firstLessonId}`);
         } else {
           console.error("Lesson data not found or empty.");
         }

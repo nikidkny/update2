@@ -19,7 +19,7 @@ const App = ({ handleLogin }) => {
           <Route path="/profile" element={<UserProfilePage />} />
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/community" element={<CommunityPage />} />
-          <Route path="/lesson/:courseId/:lessonId" element={<LessonPage />} />
+          <Route path="/course/:courseId/lesson/:lessonId" element={<LessonPage />} />
           {/* <Route path="/finished/:courseId" element={<FinishedPage />} /> */}
         </>
       ) : (
