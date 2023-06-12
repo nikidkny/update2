@@ -35,6 +35,7 @@ const Forum = ({ handleUpdateComments, className }) => {
   };
   const addPost = async (title, content) => {
     const date = new Date(); // Get the current date and time
+    // const userId = supabase.auth.user().id;
     const newPost = {
       title,
       content,
@@ -43,6 +44,7 @@ const Forum = ({ handleUpdateComments, className }) => {
       dislikes: 0,
       comments: [],
       topics: [{ topic: selectedTopic, topic_id: "1" }],
+      // user_id: userId,
     };
 
     const { data, error } = await supabase.from("posts").insert([newPost]);

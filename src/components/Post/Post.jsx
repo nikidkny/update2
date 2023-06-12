@@ -32,7 +32,7 @@ const Post = ({
     const { data: userData, error } = await supabase
       .from("users")
       .select("name")
-      .eq("id", parseInt(post.user_id, 10))
+      .eq("id", post.user_id)
       .single();
 
     if (error) {
