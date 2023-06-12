@@ -21,7 +21,7 @@ const Header = ({ className, theme }) => {
               <Link to="/courses">Courses</Link>
             </li>
             <li>
-              <Link to="/community">Community</Link>
+              <Link to="/forum">Forum</Link>
             </li>
             <li>
               <Link to="/profile">Profile</Link>
