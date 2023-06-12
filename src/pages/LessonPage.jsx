@@ -227,7 +227,7 @@ export default function LessonPage() {
                     </svg>
                   </div>
                 ) : (
-                  <Link to={`/profile`}>Finish Course</Link>
+                  <Link to={`/courses`}>Finish Course</Link>
                 )}
               </div>
             </div>
