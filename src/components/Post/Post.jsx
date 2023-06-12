@@ -4,6 +4,7 @@ import { faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import Comment from "../Comment/Comment";
 import classNames from "classnames";
 import { supabase } from "../../../supabase";
+import Line from "../Line/Line";
 
 const Post = ({
   className,
@@ -59,17 +60,21 @@ const Post = ({
     <div className={classes}>
       <button onClick={handleBack}>Back</button>
       <div className="post-content">
-        <h2>{post.title}</h2>
-        <p>Author: {authorName}</p>
+        <div className="title">
+          <h4>{post.title}</h4>
+        </div>
 
-        <div>
+        <div className="description">
           <p>{post.content}</p>
+        </div>
+        <div className="details">
+          <p>Author: {authorName}</p>
           <p>Posted on: {new Date(post.date).toLocaleString()}</p>
           {topics && topics.length > 0 && (
             <p>Topics: {topics.map((topic) => topic.topic).join(", ")}</p>
           )}
         </div>
-        <div>
+        <div className="interaction">
           <p>
             <FontAwesomeIcon icon={faHeart} onClick={handleLike} />
             {likes}
@@ -79,28 +84,32 @@ const Post = ({
             {dislikes}
           </p>
         </div>
-        <p>Comments ({comments.length}): </p>
+        <div className="comments">
+          <Line />
+          <p>Comments ({comments.length}): </p>
+          {comments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
+          <Line />
 
-        {comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const text = e.target.elements.comment.value;
-            addComment(text);
-            e.target.reset();
-          }}
-        >
-          <input
-            type="text"
-            name="comment"
-            placeholder="Enter your comment"
-            value={commentText}
-            onChange={(e) => setCommentText(e.target.value)}
-          />
-          <button type="submit">Comment</button>
-        </form>
+          <form
+            className="add-comment"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const text = e.target.elements.comment.value;
+              addComment(text);
+              e.target.reset();
+            }}
+          >
+            <textarea
+              name="comment"
+              placeholder="Enter your comment"
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+            />
+            <button type="submit">Comment</button>
+          </form>
+        </div>
       </div>
     </div>
   );

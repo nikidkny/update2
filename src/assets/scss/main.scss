@@ -362,6 +362,8 @@ html {
     list-style: none;
   }
   button {
+    font-family: var(--font-families-linguistics-pro);
+    font-weight: 800;
     cursor: pointer;
   }
 }
@@ -533,16 +535,18 @@ body {
     display: grid;
     .button-container {
       display: flex;
+      align-items: center;
       justify-content: flex-end;
-    }
-    button {
-      width: 100px;
-      display: flex;
-      .arrow {
-        &::after {
-          content: ">";
-          cursor: "pointer";
-        }
+      button {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        background-color: transparent;
+        color: var(--color-base-blue-600);
+        border: none;
+      }
+      svg g polygon {
+        fill: var(--color-base-blue-600);
       }
     }
     &--content {
@@ -564,7 +568,7 @@ body {
       }
       .icons {
         display: flex;
-        gap: 4px;
+        gap: 5px;
 
         i {
           display: flex;
@@ -612,18 +616,99 @@ body {
   }
 }
 .post {
+  padding-top: 5%;
+  button {
+    border-radius: var(--button-border-radius);
+    padding: var(--button-padding);
+    min-width: var(--button-min-width);
+    height: var(--button-height);
+    background: transparent;
+    border: 1px solid var(--color-base-blue-600);
+    color: var(--color-base-blue-600);
+    &:hover {
+      color: var(--color-base-white-100);
+      background-color: var(--color-base-blue-600);
+    }
+  }
   &-content {
     display: grid;
     grid-template-columns: 0.5fr 0.5fr 2fr 0.5fr;
+    padding-top: 5%;
+    .title {
+      grid-column: span 2;
+    }
+    .description {
+      grid-column: span 2;
+    }
+    .details {
+      grid-column: 3;
+    }
+    .interaction {
+      grid-column: 4;
+      grid-row: 2;
+      display: flex;
+      gap: 15px;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      p {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+    }
+    .comments {
+      .line {
+        border-top: 1px solid var(--color-base-blue-100);
+        padding: 0;
+      }
+      padding-top: 2%;
+      grid-column: span 4;
+      .comment-dec {
+        padding-bottom: 2%;
+      }
+      textarea {
+        width: 80%;
+        border-radius: 10px;
+        padding: 20px 12px;
+        border: 1px solid var(--color-base-blue-600);
+        background-color: var(--color-base-blue-100);
+        &:focus {
+          outline: none !important;
+          border: 2px solid var(--color-base-blue-600);
+        }
+      }
+      .add-comment {
+        padding-top: 2%;
+        gap: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
 .forum {
+  color: var(--color-base-blue-600);
   right: 0;
   left: 0;
   top: 0;
   position: absolute;
   background-color: var(--color-base-white-100);
   padding: 100px;
+  .line {
+    border-top: 1px solid var(--color-base-blue-100);
+    padding: 0;
+  }
+  .header {
+    background-color: var(--color-base-white-100);
+
+    padding: 0 100px;
+    .line {
+      border-top: 1px solid var(--color-base-blue-100);
+      padding: 0;
+    }
+  }
+
   .hero {
     display: grid;
     justify-items: center;
@@ -691,9 +776,6 @@ body {
         background-color: var(--color-base-blue-600);
       }
     }
-  }
-  .header {
-    background-color: var(--color-base-white-100);
   }
 }
 .lesson-page {

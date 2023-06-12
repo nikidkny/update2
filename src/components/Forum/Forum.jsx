@@ -114,24 +114,24 @@ const Forum = ({ handleUpdateComments, className }) => {
     setDislikes(0);
     setComments([]);
   };
-  const searchResults = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // const searchResults = posts.filter((post) =>
+  //   post.title.toLowerCase().includes(searchQuery.toLowerCase())
+  // );
 
-  const handleFocus = (e) => {
-    e.target.parentNode.classList.add("search-bar--focused");
-  };
+  // const handleFocus = (e) => {
+  //   e.target.parentNode.classList.add("search-bar--focused");
+  // };
 
-  const handleBlur = (e) => {
-    e.target.parentNode.classList.remove("search-bar--focused");
-  };
+  // const handleBlur = (e) => {
+  //   e.target.parentNode.classList.remove("search-bar--focused");
+  // };
 
   return (
     <div className={classes}>
       <div className="hero">
         <Header />
         <h1>Forum</h1>
-        <label className="search-bar">
+        {/* <label className="search-bar">
           <input
             className="search-bar_field"
             type="text"
@@ -153,7 +153,7 @@ const Forum = ({ handleUpdateComments, className }) => {
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
           </i>
-        </label>
+        </label> */}
       </div>
       <Line />
       {currentPost ? (
@@ -187,7 +187,7 @@ const Forum = ({ handleUpdateComments, className }) => {
             }}
           >
             <div className="input-container">
-              <textarea name="title" placeholder="Post Title" />
+              <textarea name="title" placeholder="Post Title" maxLength={50} />
               <textarea name="content" placeholder="Post Content" />
               <textarea
                 name="topic"
