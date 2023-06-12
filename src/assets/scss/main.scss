@@ -636,9 +636,11 @@ body {
     padding-top: 5%;
     .title {
       grid-column: span 2;
+      padding-right: 2%;
     }
     .description {
       grid-column: span 2;
+      padding-top: 4%;
     }
     .details {
       grid-column: 3;
