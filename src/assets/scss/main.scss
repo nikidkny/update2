@@ -430,7 +430,9 @@ body {
   }
 }
 .profile {
+  min-height: 90vh;
   color: var(--color-base-white-100);
+
   .header {
     background-color: var(--color-base-blue-400);
     padding: 0 100px;
