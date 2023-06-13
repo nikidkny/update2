@@ -163,7 +163,7 @@ export default function LessonPage() {
           throw new Error(updateError.message);
         }
 
-        console.log("Update Data:", updateData);
+        // console.log("Update Data:", updateData);
       } catch (error) {
         console.error("Error updating completion status:", error);
       }

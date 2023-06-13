@@ -13,7 +13,7 @@ const UserProfilePage = ({ className, parsedUserId }) => {
   useEffect(() => {
     async function fetchData() {
       if (user) {
-        console.log(user);
+        // console.log(user);
         const userEnrollments = await fetchEnrollmentsByUserId(user.id);
         const courses = await fetchAllCourses();
 
@@ -43,7 +43,7 @@ const UserProfilePage = ({ className, parsedUserId }) => {
   useEffect(() => {
     localStorage.setItem("enrollments", JSON.stringify(enrollments));
   }, [enrollments]);
-  console.log(enrollments);
+  // console.log(enrollments);
   // Retrieve enrollments from local storage on page load
   useEffect(() => {
     const storedEnrollments = localStorage.getItem("enrollments");

@@ -41,14 +41,14 @@ export default function Course({
 
     fetchData();
   }, [courseId]);
-  console.log("before handle btn", lessons);
+  // console.log("before handle btn", lessons);
 
   const handleButtonClick = async () => {
-    console.log("user: ", user);
+    // console.log("user: ", user);
     if (lessons.length > 0) {
       const firstLessonId = lessons[0].id;
-      console.log("First Lesson ID:", firstLessonId);
-      console.log(user.id);
+      // console.log("First Lesson ID:", firstLessonId);
+      // console.log(user.id);
 
       try {
         const {
@@ -63,9 +63,9 @@ export default function Course({
             completion_status: false,
           },
         ]);
-        console.log("Insert response:", response);
-        console.log("Enrollment Data:", enrollmentData);
-        console.log("Enrollment error:", enrollmentError);
+        // console.log("Insert response:", response);
+        // console.log("Enrollment Data:", enrollmentData);
+        // console.log("Enrollment error:", enrollmentError);
         if (enrollmentError) {
           throw new Error(enrollmentError.message);
         }
@@ -81,7 +81,7 @@ export default function Course({
           throw new Error(lessonError.message);
         }
 
-        console.log("Lesson Data:", lessonData);
+        // console.log("Lesson Data:", lessonData);
 
         if (lessonData && lessonData.length > 0) {
           navigate(`/course/${courseId}/lesson/${firstLessonId}`);
