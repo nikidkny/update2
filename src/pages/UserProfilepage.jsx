@@ -65,12 +65,12 @@ const UserProfilePage = ({ className, parsedUserId }) => {
         <img src="https://nikolettdkny.dk/images/clippy.gif" alt="an animation of a clipper" />
       </div>
       <Line />
-      <div>
+      {/* <div>
         <h4>My courses</h4>
         <h3>In progress</h3>
         <h3>Finished</h3>
       </div>
-      <Line />
+      <Line /> */}
     </div>
   );
 };
