@@ -529,6 +529,24 @@ body {
       min-height: 100%;
     }
   }
+  .course {
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      button {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        background-color: transparent;
+        color: var(--color-base-yellow-200);
+        border: none;
+      }
+      svg g polygon {
+        fill: var(--color-base-yellow-200);
+      }
+    }
+  }
 }
 .postlist {
   &--item {
