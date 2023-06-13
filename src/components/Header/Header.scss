@@ -20,6 +20,10 @@
     gap: 12px;
     li {
       justify-content: center;
+      a.active {
+        text-decoration: underline var(--color-base-deep-blue);
+        font-weight: 600;
+      }
     }
   }
   &-dark {

@@ -96,7 +96,7 @@ const CoursesPage = ({ className }) => {
 
   return (
     <div className={classes}>
-      <Header theme="dark" />
+      <Header theme="dark" currentPage="courses" />
       <div className="courses-main">
         <div className="hero">
           <h1>Courses</h1>

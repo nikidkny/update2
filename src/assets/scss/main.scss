@@ -430,6 +430,21 @@ body {
   }
 }
 .profile {
+  .header {
+    padding: 0 100px;
+    .line {
+      border-top: 1px solid var(--color-base-blue-100);
+      padding: 0;
+    }
+    ul {
+      li {
+        a.active {
+          text-decoration: underline var(--color-base-yellow-100);
+          font-weight: 600;
+        }
+      }
+    }
+  }
   right: 0;
   left: 0;
   top: 0;
@@ -522,11 +537,20 @@ body {
     }
   }
   header {
+    padding: 0 100px;
     background-color: var(--color-base-deep-blue);
     .line {
       border-top: 1px solid var(--color-base-white-20);
       padding: 0;
       min-height: 100%;
+    }
+    ul {
+      li {
+        a.active {
+          text-decoration: underline var(--color-base-yellow-200);
+          font-weight: 600;
+        }
+      }
     }
   }
   .course {

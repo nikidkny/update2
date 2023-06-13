@@ -5,7 +5,7 @@ import classNames from "classnames";
 import "./Header.scss";
 import Line from "../Line/Line";
 
-const Header = ({ className, theme }) => {
+const Header = ({ className, theme, currentPage }) => {
   const location = useLocation();
   const isLoginPage = location.pathname === "/";
   var classes = classNames([className, "header", `header-${theme}`]);
@@ -18,13 +18,19 @@ const Header = ({ className, theme }) => {
           </Link>
           <ul>
             <li>
-              <Link to="/courses">Courses</Link>
+              <Link to="/courses" className={currentPage === "courses" ? "active" : ""}>
+                Courses
+              </Link>
             </li>
             <li>
-              <Link to="/forum">Forum</Link>
+              <Link to="/forum" className={currentPage === "forum" ? "active" : ""}>
+                Forum
+              </Link>
             </li>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/profile" className={currentPage === "profile" ? "active" : ""}>
+                Profile
+              </Link>
             </li>
           </ul>
         </nav>
@@ -42,6 +48,7 @@ const Header = ({ className, theme }) => {
 };
 Header.PropType = {
   theme: PropTypes.oneOf(["light", "dark"]),
+  currentPage: PropTypes.string.isRequired,
 };
 Header.defaultProps = {
   theme: "light",

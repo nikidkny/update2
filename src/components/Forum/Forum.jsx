@@ -131,7 +131,7 @@ const Forum = ({ handleUpdateComments, className }) => {
   return (
     <div className={classes}>
       <div className="hero">
-        <Header />
+        <Header currentPage="forum" />
         <h1>Forum</h1>
         {/* <label className="search-bar">
           <input

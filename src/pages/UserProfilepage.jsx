@@ -54,7 +54,7 @@ const UserProfilePage = ({ className, parsedUserId }) => {
 
   return (
     <div className={classes}>
-      <Header theme="dark" />
+      <Header theme="dark" currentPage="profile" />
       <h2>My profile</h2>
       <h4>My goals</h4>
       <div className="goal">
