@@ -174,7 +174,7 @@ export default function LessonPage() {
     <div className="lesson-page">
       {currentLesson ? (
         <div className="lesson">
-          <Header theme="dark" />
+          <Header theme="dark" currentPage="courses" />
           <section className="lesson--content">
             <h3>{currentLesson.title}</h3>
             <div className="paragraphs">
